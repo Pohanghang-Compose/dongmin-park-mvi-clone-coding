@@ -1,6 +1,6 @@
 plugins {
     id("java-library")
-    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.org.jetbrains.kotlin.jvm)
 }
 
 java {
@@ -8,3 +8,12 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
+dependencies {
+    // Koin
+    implementation(libs.io.insert.koin)
+
+    // Test
+    testImplementation(libs.junit.junit)
+    testImplementation(libs.androidx.test.junit)
+    testImplementation(libs.androidx.test.espresso.core)
+}

@@ -5,4 +5,5 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.kotlin.kapt) apply false
     alias(libs.plugins.gradle.ktlint) apply false
+    alias(libs.plugins.org.jetbrains.kotlin.jvm) apply false
 }

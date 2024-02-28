@@ -14,4 +14,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "MVICloneCoding"
+
 include(":app")
+include(":data")
+include(":domain")
