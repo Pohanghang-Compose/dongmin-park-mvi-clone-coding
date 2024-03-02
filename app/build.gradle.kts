@@ -50,6 +50,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":data"))
+    implementation(project(":domain"))
+
     // Compose
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.compose.ui.ui)

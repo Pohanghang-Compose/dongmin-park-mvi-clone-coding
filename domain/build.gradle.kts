@@ -9,8 +9,8 @@ java {
 }
 
 dependencies {
-    // Koin
-    implementation(libs.io.insert.koin)
+    // module
+    implementation(project(":data"))
 
     // Test
     testImplementation(libs.junit.junit)
