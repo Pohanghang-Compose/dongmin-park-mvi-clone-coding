@@ -12,6 +12,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.chattymin.data.entity.PokemonDetails
 import com.chattymin.mviclonecoding.ui.common.UiStatus
 import com.chattymin.mviclonecoding.ui.components.molecules.ErrorMessage
 import com.chattymin.mviclonecoding.ui.components.molecules.LoadingIndicator
@@ -23,21 +24,21 @@ import com.chattymin.mviclonecoding.ui.components.organisms.PokemonTwoCard
 fun LibraryPage(
     state: LibraryState,
     onShowDetail: (id: Int) -> Unit,
-    onSearchPokemon: (keyword: String) -> Unit
+    onSearchPokemon: (keyword: String) -> Unit,
 ) {
     Scaffold(
         topBar = {
             TopBar(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .wrapContentHeight()
+                    .wrapContentHeight(),
             )
         },
         content = {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(it)
+                    .padding(it),
             ) {
                 LazyColumn(modifier = Modifier.fillMaxSize()) {
                     item {
@@ -46,7 +47,7 @@ fun LibraryPage(
                             onChangedSearchText = { onSearchPokemon(it) },
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(8.dp)
+                                .padding(8.dp),
                         )
                     }
 
@@ -61,7 +62,7 @@ fun LibraryPage(
                                     .height(150.dp)
                                     .fillMaxWidth()
                                     .padding(horizontal = 8.dp)
-                                    .padding(bottom = 8.dp)
+                                    .padding(bottom = 8.dp),
                             )
                         }
                     }
@@ -71,22 +72,24 @@ fun LibraryPage(
                     UiStatus.Loading -> {
                         LoadingIndicator(modifier = Modifier.fillMaxSize())
                     }
+
                     is UiStatus.Failed -> {
                         ErrorMessage(
                             message = status.message,
-                            modifier = Modifier.fillMaxSize()
+                            modifier = Modifier.fillMaxSize(),
                         )
                     }
+
                     else -> Unit
                 }
             }
-        }
+        },
     )
 }
 
 private fun LazyListScope.setupTwoGrid(
     entities: List<PokemonDetails>,
-    row: @Composable (one: PokemonDetails?, two: PokemonDetails?) -> Unit
+    row: @Composable (one: PokemonDetails?, two: PokemonDetails?) -> Unit,
 ) {
     val rowData = if (entities.count() <= 2) {
         listOf(entities)

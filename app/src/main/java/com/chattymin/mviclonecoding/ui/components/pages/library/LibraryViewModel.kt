@@ -2,6 +2,7 @@ package com.chattymin.mviclonecoding.ui.components.pages.library
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.chattymin.domain.usecase.SearchPokemonFromNameUseCase
 import com.chattymin.mviclonecoding.ui.common.UiStatus
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -14,12 +15,12 @@ import org.orbitmvi.orbit.syntax.simple.reduce
 import org.orbitmvi.orbit.viewmodel.container
 
 class LibraryViewModel(
-    private val searchPokemonUseCase: SearchPokemonFromNameUseCase
+    private val searchPokemonUseCase: SearchPokemonFromNameUseCase,
 ) : ContainerHost<LibraryState, LibrarySideEffect>, ViewModel() {
     private var searchJob: Job? = null
 
     override val container = container<LibraryState, LibrarySideEffect>(
-        LibraryState()
+        LibraryState(),
     )
 
     init {
@@ -36,7 +37,7 @@ class LibraryViewModel(
                     state.copy(
                         status = UiStatus.Loading,
                         searchText = searchText,
-                        detailsList = emptyList()
+                        detailsList = emptyList(),
                     )
                 }
 
@@ -47,14 +48,14 @@ class LibraryViewModel(
                     reduce {
                         state.copy(
                             status = UiStatus.Success,
-                            detailsList = details
+                            detailsList = details,
                         )
                     }
                 } else {
                     reduce {
                         state.copy(
                             status = UiStatus.Failed("Not Found"),
-                            detailsList = details
+                            detailsList = details,
                         )
                     }
                 }

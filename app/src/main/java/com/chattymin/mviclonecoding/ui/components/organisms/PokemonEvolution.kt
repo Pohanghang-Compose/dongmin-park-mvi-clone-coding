@@ -21,14 +21,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.chattymin.data.entity.PokemonDetails
 import com.chattymin.mviclonecoding.R
+import com.chattymin.mviclonecoding.ui.sample.SAMPLE_POKEMON_DETAILS
 
 @Composable
 fun PokemonEvolution(details: PokemonDetails, modifier: Modifier = Modifier) {
     Card(
         modifier = modifier,
         shape = RoundedCornerShape(16.dp),
-        elevation = 4.dp
+        elevation = 4.dp,
     ) {
         Row(modifier = Modifier.height(50.dp)) {
             AsyncImage(
@@ -41,13 +43,13 @@ fun PokemonEvolution(details: PokemonDetails, modifier: Modifier = Modifier) {
                         R.drawable.ic_question_white
                     } else {
                         R.drawable.ic_question_black
-                    }
+                    },
                 ),
                 error = painterResource(R.drawable.ic_error),
                 contentDescription = null,
                 modifier = Modifier
                     .size(50.dp)
-                    .padding(start = 16.dp)
+                    .padding(start = 16.dp),
             )
 
             Box(modifier = Modifier.fillMaxSize()) {
@@ -57,7 +59,7 @@ fun PokemonEvolution(details: PokemonDetails, modifier: Modifier = Modifier) {
                     modifier = Modifier
                         .align(Alignment.CenterStart)
                         .wrapContentHeight()
-                        .padding(start = 16.dp)
+                        .padding(start = 16.dp),
                 )
             }
         }
@@ -68,6 +70,6 @@ fun PokemonEvolution(details: PokemonDetails, modifier: Modifier = Modifier) {
 @Composable
 private fun PokemonRevolution_Preview() {
     PokemonEvolution(
-        details = SAMPLE_POKEMON_DETAILS
+        details = SAMPLE_POKEMON_DETAILS,
     )
 }

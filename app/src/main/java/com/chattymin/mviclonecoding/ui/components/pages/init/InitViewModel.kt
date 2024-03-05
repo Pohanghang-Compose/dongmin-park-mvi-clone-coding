@@ -1,6 +1,8 @@
 package com.chattymin.mviclonecoding.ui.components.pages.init
 
 import androidx.lifecycle.ViewModel
+import com.chattymin.domain.usecase.FetchAllPokemonUseCase
+import com.chattymin.mviclonecoding.ui.common.UiStatus
 import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.postSideEffect
@@ -8,10 +10,10 @@ import org.orbitmvi.orbit.syntax.simple.reduce
 import org.orbitmvi.orbit.viewmodel.container
 
 class InitViewModel(
-    private val fetchAllPokemonUseCase: FetchAllPokemonUseCase
+    private val fetchAllPokemonUseCase: FetchAllPokemonUseCase,
 ) : ContainerHost<InitState, InitSideEffect>, ViewModel() {
     override val container = container<InitState, InitSideEffect>(
-        InitState()
+        InitState(),
     )
 
     init {

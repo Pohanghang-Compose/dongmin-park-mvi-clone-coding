@@ -1,6 +1,12 @@
 package com.chattymin.mviclonecoding.ui.sample
 
-
+import com.chattymin.data.entity.ImageEntity
+import com.chattymin.data.entity.NextEvolutionEntity
+import com.chattymin.data.entity.PokemonDetails
+import com.chattymin.data.entity.PokemonEntity
+import com.chattymin.data.entity.PrevEvolutionEntity
+import com.chattymin.data.entity.TypeEntity
+import com.chattymin.data.entity.WeaknessEntity
 
 val SAMPLE_TYPES = listOf(
     TypeEntity(id = 0, pokemonId = 0, value = "Grass"),
@@ -17,7 +23,7 @@ val SAMPLE_TYPES = listOf(
     TypeEntity(id = 0, pokemonId = 0, value = "Rock"),
     TypeEntity(id = 0, pokemonId = 0, value = "Ice"),
     TypeEntity(id = 0, pokemonId = 0, value = "Ghost"),
-    TypeEntity(id = 0, pokemonId = 0, value = "Dragon")
+    TypeEntity(id = 0, pokemonId = 0, value = "Dragon"),
 )
 
 val SAMPLE_WEAKNESSES = listOf(
@@ -35,15 +41,15 @@ val SAMPLE_WEAKNESSES = listOf(
     WeaknessEntity(id = 0, pokemonId = 0, value = "Rock"),
     WeaknessEntity(id = 0, pokemonId = 0, value = "Ice"),
     WeaknessEntity(id = 0, pokemonId = 0, value = "Ghost"),
-    WeaknessEntity(id = 0, pokemonId = 0, value = "Dragon")
+    WeaknessEntity(id = 0, pokemonId = 0, value = "Dragon"),
 )
 
 val SAMPLE_NEXT_EVOLUTIONS = listOf(
-    NextEvolutionEntity(id = 0, pokemonId = 0, name = "NEXT_NAME", num = "NUMBER")
+    NextEvolutionEntity(id = 0, pokemonId = 0, name = "NEXT_NAME", num = "NUMBER"),
 )
 
 val SAMPLE_PREV_EVOLUTIONS = listOf(
-    PrevEvolutionEntity(id = 0, pokemonId = 0, name = "PREV_NAME", num = "NUMBER")
+    PrevEvolutionEntity(id = 0, pokemonId = 0, name = "PREV_NAME", num = "NUMBER"),
 )
 
 val SAMPLE_POKEMON_DETAILS = PokemonDetails(
@@ -58,19 +64,19 @@ val SAMPLE_POKEMON_DETAILS = PokemonDetails(
         num = "num",
         spawnChance = 0.0,
         spawnTime = "spawntime",
-        weight = "weight"
+        weight = "weight",
     ),
     multipliers = emptyList(),
     nextEvolutions = SAMPLE_NEXT_EVOLUTIONS,
     prevEvolutions = SAMPLE_PREV_EVOLUTIONS,
     types = SAMPLE_TYPES,
     weaknesses = SAMPLE_WEAKNESSES,
-    image = ImageEntity(0, 0, "")
+    image = ImageEntity(0, 0, ""),
 )
 
 val SAMPLE_POKEMON_DETAILS_LIST = listOf(
     SAMPLE_POKEMON_DETAILS,
     SAMPLE_POKEMON_DETAILS,
     SAMPLE_POKEMON_DETAILS,
-    SAMPLE_POKEMON_DETAILS
+    SAMPLE_POKEMON_DETAILS,
 )

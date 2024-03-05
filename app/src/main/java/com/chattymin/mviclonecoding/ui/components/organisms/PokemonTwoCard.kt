@@ -9,6 +9,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.chattymin.data.entity.PokemonDetails
+import com.chattymin.mviclonecoding.ui.sample.SAMPLE_POKEMON_DETAILS
 
 @Composable
 fun PokemonTwoCard(
@@ -16,7 +18,7 @@ fun PokemonTwoCard(
     onClickedOne: (() -> Unit)? = null,
     two: PokemonDetails? = null,
     onClickedTwo: (() -> Unit)? = null,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Row(modifier = modifier) {
         if (one != null) {
@@ -26,7 +28,7 @@ fun PokemonTwoCard(
                 modifier = Modifier
                     .fillMaxHeight()
                     .fillMaxWidth(fraction = 0.5f)
-                    .padding(end = 4.dp)
+                    .padding(end = 4.dp),
             )
         }
 
@@ -37,7 +39,7 @@ fun PokemonTwoCard(
                 modifier = Modifier
                     .fillMaxHeight()
                     .fillMaxWidth()
-                    .padding(start = 4.dp)
+                    .padding(start = 4.dp),
             )
         }
     }
@@ -51,7 +53,7 @@ fun PokemonTwoCard_Preview() {
         two = SAMPLE_POKEMON_DETAILS,
         modifier = Modifier
             .height(150.dp)
-            .fillMaxWidth()
+            .fillMaxWidth(),
     )
 }
 
@@ -63,6 +65,6 @@ fun PokemonTwoCard_TwoNull_Preview() {
         two = null,
         modifier = Modifier
             .height(150.dp)
-            .fillMaxWidth()
+            .fillMaxWidth(),
     )
 }

@@ -22,7 +22,9 @@ import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.chattymin.data.entity.PokemonDetails
 import com.chattymin.mviclonecoding.R
+import com.chattymin.mviclonecoding.ui.sample.SAMPLE_POKEMON_DETAILS
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable
@@ -38,13 +40,13 @@ fun PokemonPortrait(pokemonDetails: PokemonDetails, modifier: Modifier = Modifie
                     R.drawable.ic_question_white
                 } else {
                     R.drawable.ic_question_black
-                }
+                },
             ),
             error = painterResource(R.drawable.ic_error),
             contentDescription = null,
             modifier = Modifier
                 .height(180.dp)
-                .fillMaxWidth()
+                .fillMaxWidth(),
         )
 
         Text(
@@ -56,7 +58,7 @@ fun PokemonPortrait(pokemonDetails: PokemonDetails, modifier: Modifier = Modifie
             color = MaterialTheme.colors.onPrimary,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 4.dp)
+                .padding(vertical = 4.dp),
         )
     }
 }
@@ -69,6 +71,6 @@ private fun Preview_PokemonPortrait() {
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .width(200.dp)
+            .width(200.dp),
     )
 }

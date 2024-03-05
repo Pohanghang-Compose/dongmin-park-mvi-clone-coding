@@ -6,8 +6,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import coil.annotation.ExperimentalCoilApi
+import com.chattymin.data.entity.WeaknessEntity
+import com.chattymin.data.entity.WeaknessEntity.Companion.toPokemonType
+import com.chattymin.data.enum.PokemonType
 import com.chattymin.mviclonecoding.ui.components.molecules.SmallCard
-
+import com.chattymin.mviclonecoding.ui.sample.SAMPLE_POKEMON_DETAILS
+import com.chattymin.mviclonecoding.ui.theme.Colors
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable
@@ -15,7 +19,7 @@ fun PokemonWeakness(weakness: WeaknessEntity, modifier: Modifier = Modifier) {
     SmallCard(
         text = weakness.value,
         backGroundColor = weakness.toPokemonType().toColor(),
-        modifier = modifier
+        modifier = modifier,
     )
 }
 
@@ -47,7 +51,7 @@ private fun PokemonWeakness_Preview() {
         SAMPLE_POKEMON_DETAILS.weaknesses.forEach { weaknesses ->
             PokemonWeakness(
                 weakness = weaknesses,
-                modifier = Modifier.wrapContentSize()
+                modifier = Modifier.wrapContentSize(),
             )
         }
     }

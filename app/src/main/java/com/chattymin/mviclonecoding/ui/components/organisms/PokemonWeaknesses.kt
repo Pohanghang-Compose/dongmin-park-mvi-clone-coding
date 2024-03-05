@@ -15,7 +15,9 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.chattymin.data.entity.PokemonDetails
 import com.chattymin.mviclonecoding.R
+import com.chattymin.mviclonecoding.ui.sample.SAMPLE_POKEMON_DETAILS
 import com.google.accompanist.flowlayout.FlowRow
 
 @Composable
@@ -25,7 +27,7 @@ fun PokemonWeaknesses(details: PokemonDetails, modifier: Modifier = Modifier) {
             text = stringResource(R.string.weakness_title),
             style = MaterialTheme.typography.h5,
             fontStyle = FontStyle.Italic,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -45,6 +47,6 @@ private fun PokemonWeaknesses_Preview() {
         details = SAMPLE_POKEMON_DETAILS,
         modifier = Modifier
             .fillMaxWidth()
-            .wrapContentHeight()
+            .wrapContentHeight(),
     )
 }

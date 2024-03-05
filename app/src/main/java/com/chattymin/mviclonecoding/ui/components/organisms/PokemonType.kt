@@ -6,7 +6,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import coil.annotation.ExperimentalCoilApi
+import com.chattymin.data.entity.TypeEntity
+import com.chattymin.data.entity.TypeEntity.Companion.toPokemonType
+import com.chattymin.data.enum.PokemonType
 import com.chattymin.mviclonecoding.ui.components.molecules.SmallCard
+import com.chattymin.mviclonecoding.ui.sample.SAMPLE_POKEMON_DETAILS
+import com.chattymin.mviclonecoding.ui.theme.Colors
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable
@@ -14,7 +19,7 @@ fun PokemonType(typeEntity: TypeEntity, modifier: Modifier = Modifier) {
     SmallCard(
         text = typeEntity.value,
         backGroundColor = typeEntity.toPokemonType().toColor(),
-        modifier = modifier
+        modifier = modifier,
     )
 }
 
@@ -46,7 +51,7 @@ private fun PokemonType_Preview() {
         SAMPLE_POKEMON_DETAILS.types.forEach { type ->
             PokemonType(
                 typeEntity = type,
-                modifier = Modifier.wrapContentSize()
+                modifier = Modifier.wrapContentSize(),
             )
         }
     }

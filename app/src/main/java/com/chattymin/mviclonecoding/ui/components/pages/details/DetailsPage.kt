@@ -9,10 +9,11 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.chattymin.data.entity.PokemonDetails
+import com.chattymin.mviclonecoding.ui.common.UiStatus
 import com.chattymin.mviclonecoding.ui.components.molecules.BackButton
 import com.chattymin.mviclonecoding.ui.components.molecules.ErrorMessage
 import com.chattymin.mviclonecoding.ui.components.molecules.LoadingIndicator
@@ -22,11 +23,10 @@ import com.chattymin.mviclonecoding.ui.components.organisms.PokemonPortrait
 import com.chattymin.mviclonecoding.ui.components.organisms.PokemonTypes
 import com.chattymin.mviclonecoding.ui.components.organisms.PokemonWeaknesses
 
-
 @Composable
 fun DetailsPage(
     state: DetailsState,
-    onBack: () -> Unit
+    onBack: () -> Unit,
 ) {
     Scaffold {
         when (val status = state.status) {
@@ -34,17 +34,19 @@ fun DetailsPage(
                 LoadingIndicator(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(it)
+                        .padding(it),
                 )
             }
+
             is UiStatus.Failed -> {
                 ErrorMessage(
                     message = status.message,
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(it)
+                        .padding(it),
                 )
             }
+
             UiStatus.Success -> {
                 val details = state.details ?: return@Scaffold
                 val evolutions = state.evolutions
@@ -52,12 +54,12 @@ fun DetailsPage(
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(it)
+                        .padding(it),
                 ) {
-                    PokemonDataList1(
+                    PokemonDataList(
                         details = details,
                         evolutions = evolutions,
-                        modifier = Modifier.fillMaxSize()
+                        modifier = Modifier.fillMaxSize(),
                     )
 
                     BackButton(
@@ -65,7 +67,7 @@ fun DetailsPage(
                         modifier = Modifier
                             .size(48.dp)
                             .padding(top = 12.dp, start = 12.dp)
-                            .align(Alignment.TopStart)
+                            .align(Alignment.TopStart),
                     )
                 }
             }
@@ -77,7 +79,7 @@ fun DetailsPage(
 private fun PokemonDataList(
     details: PokemonDetails,
     evolutions: List<PokemonDetails>,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     LazyColumn(modifier) {
         item {
@@ -85,7 +87,7 @@ private fun PokemonDataList(
                 pokemonDetails = details,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .wrapContentHeight()
+                    .wrapContentHeight(),
             )
         }
 
@@ -96,7 +98,7 @@ private fun PokemonDataList(
                     .fillMaxWidth()
                     .wrapContentHeight()
                     .padding(top = 16.dp)
-                    .padding(horizontal = 16.dp)
+                    .padding(horizontal = 16.dp),
             )
         }
 
@@ -107,7 +109,7 @@ private fun PokemonDataList(
                     .fillMaxWidth()
                     .wrapContentHeight()
                     .padding(top = 16.dp)
-                    .padding(horizontal = 16.dp)
+                    .padding(horizontal = 16.dp),
             )
         }
 
@@ -118,7 +120,7 @@ private fun PokemonDataList(
                     .fillMaxWidth()
                     .wrapContentHeight()
                     .padding(top = 16.dp)
-                    .padding(horizontal = 16.dp)
+                    .padding(horizontal = 16.dp),
             )
         }
 
@@ -129,7 +131,7 @@ private fun PokemonDataList(
                     .fillMaxWidth()
                     .wrapContentHeight()
                     .padding(top = 16.dp)
-                    .padding(horizontal = 16.dp)
+                    .padding(horizontal = 16.dp),
             )
         }
     }
